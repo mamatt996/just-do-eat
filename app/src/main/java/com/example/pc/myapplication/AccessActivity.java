@@ -18,7 +18,7 @@ public class AccessActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access);
 
-        emailWL = (TextView)findViewById(R.id.email_wl);
+        emailWL = findViewById(R.id.email_wl);
 
         emailWL.setText(getIntent().getStringExtra("message"));
 

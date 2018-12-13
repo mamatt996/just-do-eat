@@ -1,6 +1,8 @@
 package com.example.pc.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Switch switchS;
     LinearLayout backLL;
 
+    String MYIMP = "preferenceDefault";
+    SharedPreferences.Editor edit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         loginBtn.setOnClickListener(this);
         switchS.setOnCheckedChangeListener(this);
+
+        SharedPreferences prefs = getSharedPreferences(MYIMP, Context.MODE_PRIVATE);
+        edit = prefs.edit();
+
+        boolean bc = prefs.getBoolean(MYIMP,false);
+
+        setColor(bc);
+
+
 
         Log.i(TAG,"activity created");
     }
@@ -116,7 +130,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             backLL.setBackgroundColor(getResources().getColor(R.color.colorDark));
+            edit.putBoolean(MYIMP, true);
+            edit.commit();
+
         } else{
+            backLL.setBackgroundColor(getResources().getColor(R.color.colorLight));
+            edit.putBoolean(MYIMP,false);
+            edit.commit();
+        }
+    }
+    public void setColor (boolean b){
+        if (b){
+            backLL.setBackgroundColor(getResources().getColor(R.color.colorDark));
+        }
+        else {
             backLL.setBackgroundColor(getResources().getColor(R.color.colorLight));
         }
     }
