@@ -35,7 +35,7 @@
             android:drawableStart="@drawable/baseline_vpn_key_black_18"
             android:drawablePadding="10dp"
             android:id="@+id/password_et"
-           android:hint="@string/hint_password"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"/>
 
 

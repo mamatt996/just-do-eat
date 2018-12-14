@@ -28,4 +28,8 @@
     <string name="phone_error">Phone failed</string>
     <string name="register_success">Register success</string>
     <string name="welcome">Welcome</string>
+    <string name="milk">Milk</string>
+    <string name="bread">Bread</string>
+    <string name="tea">Tea</string>
+    <string name="total">Total</string>
 </resources>

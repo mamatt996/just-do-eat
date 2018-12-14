@@ -28,5 +28,8 @@
     <string name="phone_error">Il telefono è errato</string>
     <string name="register_success">Registrazione avvenuta con successo</string>
     <string name="welcome">Benvenuto</string>
-
+    <string name="milk">Latte</string>
+    <string name="bread">Pane</string>
+    <string name="tea">Tee</string>
+    <string name="total">Totale</string>
 </resources>
