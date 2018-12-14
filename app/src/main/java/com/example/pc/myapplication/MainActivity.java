@@ -3,6 +3,7 @@ package com.example.pc.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     String MYIMP = "preferenceDefault";
     SharedPreferences.Editor edit;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setColor(bc);
 
 
-
         Log.i(TAG,"activity created");
+
     }
 
     private boolean isValidEmail(){
@@ -100,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("message",emailET.getText().toString());
         startActivity(intent);
     }
+
+
 
     @Override
     public void onClick(View v) {
