@@ -3,6 +3,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="5dp"
     android:id="@+id/relative_L">
@@ -48,6 +49,14 @@
             android:id="@+id/totals"
             android:text="@string/total"
             android:textSize="30dp"/>
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pbar"
+            android:max="5"
+            tools:progress="3"
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
 
         <Button
             android:layout_width="match_parent"

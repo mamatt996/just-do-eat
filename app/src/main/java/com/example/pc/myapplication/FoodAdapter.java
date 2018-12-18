@@ -15,9 +15,14 @@ import java.util.ArrayList;
 public class FoodAdapter extends RecyclerView.Adapter {
 
     private LayoutInflater mInflter;
-    private ArrayList<Food> data;
+    private ArrayList<Food> data = new ArrayList<>();
 
     private OnQuantityChange onQuantityChange;
+
+    public void setData(ArrayList<Food> foodArrayList) {
+        this.data = foodArrayList;
+        notifyDataSetChanged();
+    }
 
     public interface OnQuantityChange {
         public void onItemAdded(float price);
@@ -33,6 +38,10 @@ public class FoodAdapter extends RecyclerView.Adapter {
 
     public FoodAdapter(Context context, ArrayList<Food> data) {
         this.data = data;
+        mInflter = LayoutInflater.from(context);
+    }
+
+    public FoodAdapter (Context context) {
         mInflter = LayoutInflater.from(context);
     }
 

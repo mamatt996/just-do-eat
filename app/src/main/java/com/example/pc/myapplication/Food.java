@@ -1,5 +1,8 @@
 package com.example.pc.myapplication;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Food {
     private String name;
     private float price;
@@ -42,6 +45,11 @@ public class Food {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public Food(JSONObject jsonFood) throws JSONException {
+        name = jsonFood.getString("name");
+        price = jsonFood.getInt("price");
     }
 
 }
