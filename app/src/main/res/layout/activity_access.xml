@@ -1,200 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp"
-    android:id="@+id/linearL">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome"
-        android:textSize="30dp" />
-
-    <TextView
-        android:id="@+id/email_wl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:id="@+id/relative_L">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/header"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textVW"
-            android:text="@string/milk"
-            android:textSize="25dp"
-            android:layout_marginStart="10dp"
-            />
+            android:text="@string/welcome"
+            android:textSize="30dp" />
+
         <TextView
+            android:id="@+id/email_wl"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/prize"
-            android:text="2,00 €"
-            android:textSize="25dp"
-            android:layout_marginStart="60dp"/>
-
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:id="@+id/minus"
-            android:text="-"
-            android:layout_marginStart="30dp"
-            />
-        <TextView
-            android:layout_width="25dp"
-            android:layout_height="40dp"
-            android:id="@+id/qnt"
-            android:text="0"
-            android:textSize="30dp"
-            android:layout_marginStart="10dp"/>
-
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:id="@+id/plus"
-            android:text="+"
-            android:layout_marginStart="10dp"
-            />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/food_rv"
+            android:layout_below="@+id/header"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp">
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textVW2"
-            android:text="@string/bread"
-            android:textSize="25dp"
-            android:layout_marginStart="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/prize2"
-            android:text="1,00 €"
-            android:textSize="25dp"
-            android:layout_marginStart="40dp"/>
-
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:id="@+id/minus2"
-            android:text="-"
-            android:layout_marginStart="30dp"
-            />
-        <TextView
-            android:layout_width="25dp"
-            android:layout_height="40dp"
-            android:id="@+id/qnt2"
-            android:text="0"
-            android:textSize="30dp"
-            android:layout_marginStart="10dp"/>
-
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:id="@+id/plus2"
-            android:text="+"
-            android:layout_marginStart="10dp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textVW3"
-            android:text="@string/tea"
-            android:textSize="25dp"
-            android:layout_marginStart="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/prize3"
-            android:text="2,00 €"
-            android:textSize="25dp"
-            android:layout_marginStart="65dp"/>
-
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:id="@+id/minus3"
-            android:text="-"
-            android:layout_marginStart="30dp"
-            />
-        <TextView
-            android:layout_width="25dp"
-            android:layout_height="40dp"
-            android:id="@+id/qnt3"
-            android:text="0"
-            android:textSize="30dp"
-            android:layout_marginStart="10dp"/>
-
-        <Button
-            android:layout_width="40dp"
-            android:layout_height="45dp"
-            android:id="@+id/plus3"
-            android:text="+"
-            android:layout_marginStart="10dp"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/totals"
             android:text="@string/total"
-            android:textSize="40dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tot"
-            android:text="0 €"
-            android:textSize="45dp"
-            android:layout_marginStart="50dp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom">
+            android:textSize="30dp"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buy"
-            android:text="Buy"
-            android:textSize="20dp"
+            android:text="BUY"
+            android:textSize="25dp"
             android:enabled="false"/>
 
     </LinearLayout>
 
 
-
-</LinearLayout>
+</RelativeLayout>
