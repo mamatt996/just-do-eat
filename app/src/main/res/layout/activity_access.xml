@@ -64,7 +64,8 @@
             android:id="@+id/buy"
             android:text="BUY"
             android:textSize="25dp"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:drawableEnd="@drawable/baseline_shopping_cart_black_18"/>
 
     </LinearLayout>
 
