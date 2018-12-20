@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,6 +35,7 @@ public class AccessActivity extends AppCompatActivity implements View.OnClickLis
     FoodAdapter adapter;
 
     ProgressBar p_bar;
+    ProgressBar loading_;
     double tot = 0;
 
     TextView emailWL;
@@ -78,6 +80,8 @@ public class AccessActivity extends AppCompatActivity implements View.OnClickLis
 
         p_bar = findViewById(R.id.pbar);
 
+        loading_ = findViewById(R.id.loading);
+
         if (getIntent().getStringExtra("message") != null){
             email = getIntent().getStringExtra("message");
             emailWL.setText(email);
@@ -93,7 +97,7 @@ public class AccessActivity extends AppCompatActivity implements View.OnClickLis
         totalS = findViewById(R.id.totals);
         buyY = findViewById(R.id.buy);
 
-        relativeL.setBackgroundColor(getResources().getColor(R.color.colorBGAA));
+        relativeL.setBackgroundColor(getResources().getColor(R.color.colorAccent));
 
 
     }
@@ -126,21 +130,24 @@ public class AccessActivity extends AppCompatActivity implements View.OnClickLis
                     public void onResponse(String response) {
                         Log.d("Success", response);
                         try {
-                            JSONObject responseJSON = new JSONObject(response);
-                            JSONArray jsonArray = responseJSON.getJSONArray("foods");
+                            JSONArray responseJSON = new JSONArray(response);
 
                             ArrayList<Food> foodArrayList = new ArrayList<>();
 
-                            for (int i=0; i < jsonArray.length(); i++) {
+                            for (int i=0; i < responseJSON.length(); i++) {
 
-                                Food food = new Food(jsonArray.getJSONObject(i));
+                                Food food = new Food(responseJSON.getJSONObject(i));
+                                /*if (!food.pAvailable)
+                                    continue;*/
                                 foodArrayList.add(food);
                                 }
 
                                 adapter.setData(foodArrayList);
 
+                            loading_.setVisibility(View.GONE);
+
                         } catch (JSONException e) {
-                            e.printStackTrace();
+                            Log.e("JSONException", e.getMessage());
                         }
                         // Display the first 500 characters of the response string.
                     }
@@ -149,6 +156,8 @@ public class AccessActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error", error.getMessage());
+                loading_.setVisibility(View.GONE);
+                Toast.makeText(AccessActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

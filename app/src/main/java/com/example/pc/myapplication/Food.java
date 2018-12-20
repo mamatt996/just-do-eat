@@ -7,11 +7,13 @@ public class Food {
     private String name;
     private float price;
     private int quantity;
+    public boolean pAvailable;
 
-    public Food(String name, float price) {
+    public Food(String name, float price, boolean pAvailable, boolean pAvailable1) {
         this.name = name;
         this.price = price;
 
+        this.pAvailable = pAvailable1;
     }
 
     public void setName(String name) {
@@ -50,6 +52,8 @@ public class Food {
     public Food(JSONObject jsonFood) throws JSONException {
         name = jsonFood.getString("name");
         price = jsonFood.getInt("price");
+
+        pAvailable = jsonFood.getBoolean("available");
     }
 
 }
